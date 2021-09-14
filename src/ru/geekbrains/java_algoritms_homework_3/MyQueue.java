@@ -1,5 +1,7 @@
 package ru.geekbrains.java_algoritms_homework_3;
 
+import java.util.Arrays;
+
 public class MyQueue<T> {
     private T[] list;
     private int size;
@@ -19,12 +21,13 @@ public class MyQueue<T> {
     }
 
     private int nextIndex(int index) {
-        return (index + 1) % list.length;
+        if (index >= list.length) return ((index + 1) - list.length);
+        else return (index + 1);
     }
 
     public T peekFront() {
         if (isEmpty()) {
-            throw new RuntimeException("Queue isEmpty");
+            throw new RuntimeException("Queue isEmpty!");
         }
 
         return list[begin];
@@ -32,8 +35,8 @@ public class MyQueue<T> {
 
     public void insert(T item) {
         if (isFull()) {
-            //Расширение массива***
-            throw new RuntimeException("Queue isFull");
+            int newSize = (int)(list.length * 1.5F + 1); // Определение нового размера массива
+            reCapacity(newSize); // Увеличение размера массива
         }
         size++;
         list[end] = item;
@@ -48,6 +51,9 @@ public class MyQueue<T> {
         return temp;
     }
 
+    public int getLength() {
+        return list.length;
+    }
 
     public int size() {
         return size;
@@ -60,4 +66,15 @@ public class MyQueue<T> {
     public boolean isFull() {
         return size == list.length;
     }
+
+    private void reCapacity(int newSize) {
+        T[] temp = (T[]) new Object[newSize];
+        System.arraycopy(list, 0, temp, 0, size);
+        list = temp;
+    }
+
+    public void print() {
+        System.out.println(Arrays.toString(list));
+    }
+
 }
