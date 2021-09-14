@@ -27,8 +27,8 @@ public class MyPriorityQueue<T extends Comparable<T>> {
 
     public void insert(T item) {
         if (isFull()) {
-            // расширение массива
-            throw new StackOverflowError();
+            int newSize = (int)(size * 1.5F + 1); // Определение нового размера массива
+            reCapacity(newSize); // Увеличение размера массива
         }
         list[size] = item;
         size++;

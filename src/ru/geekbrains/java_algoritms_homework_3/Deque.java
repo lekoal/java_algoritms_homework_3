@@ -1,22 +1,23 @@
 package ru.geekbrains.java_algoritms_homework_3;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
-public class MyQueue<T> {
+public class Deque<T> {
     private T[] list;
     private int size;
     private final int DEFAULT_CAPACITY = 10;
     private int begin;
     private int end;
 
-    public MyQueue(int capacity) {
+    public Deque(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException("capacity: " + capacity);
         }
         list = (T[]) new Object[capacity];
     }
 
-    public MyQueue() {
+    public Deque() {
         list = (T[]) new Object[DEFAULT_CAPACITY];
     }
 
@@ -33,6 +34,13 @@ public class MyQueue<T> {
         return list[begin];
     }
 
+    public T peekRear() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return list[end - 1];
+    }
+
     public void insert(T item) {
         if (isFull()) {
             int newSize = (int)(list.length * 1.5F + 1); // Определение нового размера массива
@@ -43,11 +51,19 @@ public class MyQueue<T> {
         end = nextIndex(end);
     }
 
-    public T remove() {
+    public T removeFront() {
         T temp = peekFront();
         size--;
         list[begin] = null;
         begin = nextIndex(begin);
+        return temp;
+    }
+
+    public T removeRear() {
+        T temp = peekRear();
+        size--;
+        end -=1;
+        list[end] = null;
         return temp;
     }
 

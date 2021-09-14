@@ -27,8 +27,8 @@ public class MyStack<T> {
 
     public void push(T item) {
         if (isFull()) {
-            // расширение массива
-            throw new StackOverflowError();
+            int newSize = (int)(size * 1.5F + 1); // Определение нового размера массива
+            reCapacity(newSize); // Увеличение размера массива
         }
         list[size] = item;
         size++;
@@ -57,5 +57,17 @@ public class MyStack<T> {
         T[] temp = (T[]) new Object[newSize];
         System.arraycopy(list, 0, temp, 0, size);
         list = temp;
+    }
+
+    public void reverse(String straight) { // Метод разворота строки с использованием стека
+        Object[] strArr = new Object[straight.length()];
+        for (int i = 0; i < strArr.length; i++) {
+            strArr[i] = straight.charAt(i);
+            push((T)strArr[i]);
+        }
+        int temp = size;
+        for (int i = 0; i < temp; i++) {
+            System.out.print(pop());
+        }
     }
 }
