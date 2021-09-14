@@ -1,5 +1,7 @@
 package ru.geekbrains.java_algoritms_homework_3;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 //        MyStack<Integer> myStack = new MyStack<>();
@@ -17,35 +19,40 @@ public class Main {
 //        Expression e = new Expression("()+{}+[{}]");
 //        System.out.println(e.checkBracket());
 
+        MyStack<Character> myCharStack = new MyStack<>();
+        myCharStack.reverse("any string");
 
-        MyQueue<Integer> queue = new MyQueue<>();
 
-        queue.insert(3);
-        queue.insert(2);
-        queue.insert(7);
-        queue.insert(4);
-        queue.insert(6);
-        queue.insert(3);
-        queue.insert(8);
-        queue.insert(1);
-        queue.insert(5);
-        queue.insert(9);
-//        queue.print(); //Вывод массива на печать
-        queue.insert(8);
-        queue.insert(5);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(5);
-        queue.insert(3);
-        queue.insert(3);
-        queue.insert(8);
-        queue.insert(8);
-//        queue.print();
-        int tempSize = queue.size();
 
-        for (int i = 0; i < tempSize; i++) {
-            System.out.println(queue.remove());
-        }
+
+//        MyQueue<Integer> queue = new MyQueue<>();
+//
+//        queue.insert(3);
+//        queue.insert(2);
+//        queue.insert(7);
+//        queue.insert(4);
+//        queue.insert(6);
+//        queue.insert(3);
+//        queue.insert(8);
+//        queue.insert(1);
+//        queue.insert(5);
+//        queue.insert(9);
+////        queue.print(); //Вывод массива на печать
+//        queue.insert(8);
+//        queue.insert(5);
+//        queue.insert(4);
+//        queue.insert(5);
+//        queue.insert(5);
+//        queue.insert(3);
+//        queue.insert(3);
+//        queue.insert(8);
+//        queue.insert(8);
+////        queue.print();
+//        int tempSize = queue.size();
+//
+//        for (int i = 0; i < tempSize; i++) {
+//            System.out.println(queue.remove());
+//        }
 
 //        MyPriorityQueue<Integer> mpq = new MyPriorityQueue<>();
 //
