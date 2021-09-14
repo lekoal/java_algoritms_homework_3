@@ -1,7 +1,5 @@
 package ru.geekbrains.java_algoritms_homework_3;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class MyStack<T> {
@@ -61,7 +59,7 @@ public class MyStack<T> {
         list = temp;
     }
 
-    public void reverse(String straight) { // Метод разворота строки с использованием стэка
+    public void reverse(String straight) { // Метод разворота строки с использованием стека
         Object[] strArr = new Object[straight.length()];
         for (int i = 0; i < strArr.length; i++) {
             strArr[i] = straight.charAt(i);
