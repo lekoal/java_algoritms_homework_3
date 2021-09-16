@@ -1,5 +1,7 @@
 package ru.geekbrains.java_algoritms_homework_3;
 
+import com.sun.source.tree.IfTree;
+
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
@@ -62,9 +64,15 @@ public class Deque<T> {
     public T removeRear() {
         T temp = peekRear();
         size--;
-        end -=1;
+        prevIndex();
         list[end] = null;
         return temp;
+    }
+
+    public void prevIndex() {
+        if (end >= 0) {
+            end -=1;
+        } else end = list.length - 1;
     }
 
     public int getLength() {
